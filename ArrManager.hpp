@@ -12,6 +12,10 @@ namespace am {
             y = z;
         }
     }
+    namespace search{
+        template <typename T>
+        int linear_search(T* arr, std::size_t size, T element);
+    }
     namespace sort {
         namespace {
             //merge sort
@@ -159,6 +163,7 @@ namespace am {
     };
 
     namespace manip {
+        using am::search::linear_search;
         //splits array into 2 subarrays
         template <typename T>
         void split(T arr[], std::size_t size, T*& arrL, T*& arrR){ //if size of arr is odd, arrR has the odd setArrElement
@@ -175,19 +180,20 @@ namespace am {
         
         //slices form inclusive, to exclusive
         template <typename T>
-        void slice(T arr[], std::size_t size, T*& slicedArr, std::size_t from, std::size_t to){
+        T* slice(T arr[], std::size_t size, std::size_t from, std::size_t to){
             if(from >= to){
                 std::cerr << "In function slice, 'from' is greater, or equal, than 'to'. 'From' needs to be smaller than 'to'.\n";
-                return;
+                return arr;
             }
             if(to > size){
                 std::cerr << "'To' is greater than size of array, 'to' is out of bounds.\n";
-                return;
+                return arr;
             }
-            slicedArr = new T[to - from];
+            T* slicedArr = new T[to - from];
             for(int i = from; i < to; i++){
                 slicedArr[i - from] = arr[i];
             }
+            return slicedArr;
         }
 
         //wil put 2 arrays together
@@ -206,15 +212,106 @@ namespace am {
         //reverses array
         template <typename T>
         void reverse(T* arr, std::size_t size){
-            T tempArr[size];
+            T* tempArr = new T[size];
             for(int i = 0; i < size; i++){
                 tempArr[i] = arr[i];
             }
             for(int i = 0; i < size; i++){
                 arr[size - 1 - i] = tempArr[i];  
             }
+            delete[] tempArr;
         }
 
+        //resizes array
+        template <typename T>
+        T* resize(T* arr, int& size, std::size_t newSize){
+            if(size < 0){
+                std::cerr << "Invalid size\n";
+                return arr;
+            }
+            T* tempArr = new T[newSize];
+            for(int i = 0; i < newSize; i++){
+                if(i < size){
+                    tempArr[i] = arr[i];
+                }
+            }
+            delete[] arr;
+
+            return tempArr;
+        }
+
+        //removes duplicates
+        template <typename T>
+        T* remove_dups(T* arr, int& size){
+            if(size < 0){
+                std::cerr << "Invalid size\n";
+                return arr;
+            }
+            T* tempArr = new T[size];
+            for(int i = 0; i < size; i++){
+                tempArr[i] = arr[i];
+            }
+            sort::merge_sort(tempArr, size);
+            T* dups = new T[size];
+            int dupsIndex = 0;
+            for(int i = 1; i < size; i++){
+                if(tempArr[i] == tempArr[i - 1]){
+                    dups[dupsIndex] = tempArr[i];
+                    dupsIndex++;
+                }
+            }
+            if(dupsIndex == 0){
+                delete[] tempArr;
+                delete[] dups;
+                return arr;
+            }
+            for(int i = 0; i < dupsIndex; i++){
+                int x = am::search::linear_search(arr, size, dups[i]);
+                for(int j = x; j < size - 1; j++){
+                    arr[j] = arr[j + 1];
+                }
+                arr = resize(arr, size, size - 1);
+                size--;
+            }
+            T* returnArr = new T[size];
+            for(int i = 0; i < size; i++){
+                returnArr[i] = arr[i];
+            }
+            delete[] tempArr;
+            delete[] dups;
+            delete[] arr;
+            return returnArr;
+        }
+
+        //same as slice, but it removes selected area
+        template <typename T>
+        T* remove_slice(T arr[], int& size, std::size_t from, std::size_t to ){
+            if(size < 0){
+                std::cerr << "Invalid size\n";
+                return arr;
+            }
+            if(from >= to){
+                std::cerr << "In function slice, 'from' is greater, or equal, than 'to'. 'From' needs to be smaller than 'to'.\n";
+                return arr;
+            }
+            if(to > size){
+                std::cerr << "'To' is greater than size of array, 'to' is out of bounds.\n";
+                return arr;
+            }
+            T* arrL = new T[from];
+            for(int i = 0; i < from; i++){
+                arrL[i] = arr[i];
+            }
+            T* arrR = new T[size - to];
+            for(int i = to; i < size; i++){
+                arrR[i - to] = arr[i];
+            }
+            T* arrC = concatenate(arrL, from, arrR, size - to);
+            delete[] arrL;
+            delete[] arrR;
+            size -= to - from;
+            return arrC;
+        }
     };
     
     namespace basic {
