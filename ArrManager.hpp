@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ARRMANAGE_H
+#define ARRMANAGE_H
 
 #include <cstdlib>
 #include <ctime>
@@ -441,3 +442,5 @@ namespace am {
         }
     };
 };
+
+#endif
