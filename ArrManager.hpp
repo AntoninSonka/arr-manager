@@ -91,7 +91,35 @@ namespace am {
                     arr[j + 1] = current;
                 }
             }
-            //TODO add heap sort
+            
+            //heap sort
+            template <typename T>
+            void heapify(T* arr, int parent, int size){
+                int left = parent * 2 + 1;
+                int right = left + 1;
+                int bigger = parent;
+                if(left < size && arr[left] > arr[bigger]){
+                    bigger = left;
+                }
+                if(right < size && arr[right] > arr[bigger]){
+                    bigger = right;
+                }
+                if(bigger != parent){
+                    std::swap(arr[bigger], arr[parent]);
+                    heapify(arr, bigger, size);
+                }
+            }
+            
+            template <typename T>
+            void heapSort(T* arr, int size){
+                for(int i = size / 2 - 1; i >= 0; i--){
+                    heapify(arr, i, size);
+                }
+                for(int i = size - 1; i > 0; i--){
+                    std::swap(arr[0], arr[i]);
+                    heapify(arr, 0, i);
+                }
+            }
         }
 
         template <typename T>
@@ -107,6 +135,11 @@ namespace am {
         template <typename T>
         void insertion_sort(T* arr, std::size_t size){
             insertionSort(arr, size);
+        }
+
+        template <typename T>
+        void heap_sort(T* arr, std::size_t size){
+            heapSort(arr, size);
         }
 
         //shuffles array
