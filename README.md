@@ -20,6 +20,9 @@ manip:
   slice()
   concatenate()
   reverse()
+  resize()
+  remove_dups()
+  remove_slice()
   
 search:
   binary_search()
