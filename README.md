@@ -37,8 +37,8 @@ search:
   linear_search(array, size, element)
 
 stats:
-  max_val(array, size) //return schoosen type
-  min_val(array, size) //returns choosen type
-  sum_el(array, size) //returns choosen type
-  avarage(array, size) //return choosen type
-  median(array, size) //returns choosen type
+  max_val(array, size) //return arrays type
+  min_val(array, size) //returns arrays type
+  sum_el(array, size) //returns arrays type
+  avarage(array, size) //return arrays type
+  median(array, size) //returns arrays type
