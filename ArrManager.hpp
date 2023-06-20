@@ -5,7 +5,13 @@
 #include <iostream>
 
 namespace am {
-
+    namespace{
+        void swap(int& x, int& y){
+            int z = x;
+            x = y;
+            y = z;
+        }
+    }
     namespace sort {
         namespace {
             //merge sort
@@ -60,12 +66,12 @@ namespace am {
                     if(arr[currentIndex] <= arr[pivot]){
                         swapMarker++;
                         if(arr[currentIndex] < arr[swapMarker]){
-                            std::swap(arr[currentIndex], arr[swapMarker]);
+                            swap(arr[currentIndex], arr[swapMarker]);
                         }
                     }
                 }
                 swapMarker++;
-                std::swap(arr[swapMarker], arr[pivot]);
+                swap(arr[swapMarker], arr[pivot]);
                 return swapMarker;
             }
             
@@ -85,7 +91,7 @@ namespace am {
                     T current = arr[i];
                     int j = i - 1;
                     while(j >= 0 && current < arr[j]){
-                        std::swap(arr[j + 1], arr[j]);
+                        swap(arr[j + 1], arr[j]);
                         j--;
                     }
                     arr[j + 1] = current;
@@ -105,7 +111,7 @@ namespace am {
                     bigger = right;
                 }
                 if(bigger != parent){
-                    std::swap(arr[bigger], arr[parent]);
+                    swap(arr[bigger], arr[parent]);
                     heapify(arr, bigger, size);
                 }
             }
@@ -116,7 +122,7 @@ namespace am {
                     heapify(arr, i, size);
                 }
                 for(int i = size - 1; i > 0; i--){
-                    std::swap(arr[0], arr[i]);
+                    swap(arr[0], arr[i]);
                     heapify(arr, 0, i);
                 }
             }
@@ -147,7 +153,7 @@ namespace am {
         void shuffle(T* arr, std::size_t size){
             srand(time(NULL));
             for(int i = 0; i < size; i++){
-                std::swap(arr[i], arr[rand()%(size - i) + i]);
+                swap(arr[i], arr[rand()%(size - i) + i]);
             }
         }
     };
