@@ -8,6 +8,7 @@ sort:
   merge_sort()
   quick_sort()
   insertion_sort()
+  heap_sort()
   shuffle()
   
 basic:
