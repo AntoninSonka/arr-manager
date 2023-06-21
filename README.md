@@ -3,7 +3,8 @@ This is C++ header for managing arrays
 Functions in this file are called through namespaces, so if for example you want to call function merge_sort(), you will need to call am::sort::merge_sort().
 
 when there is array, it can be static/dynamic of any type.
-when ther is dArray, it must be dynamic array of any type.
+when there is dArray, it must be dynamic array of any type.
+when there is deleteOriginalArray, it takes optional bool, if you wan to delete original array with calling funtion, default is delete.
 size is size of array.
 sizeCh can get changed when calling function.
 
@@ -28,8 +29,8 @@ manip:
   slice(array, sizeCh, from, to) //returns dArray
   concatenate(array1, size1, array2, size2) //returns dArray
   reverse(array, size)
-  resize(array, sizeCh, newSize) //returns dArray
-  remove_dups(array, sizeCh) //returns dArray
+  resize(array, sizeCh, newSize, deleteOriginalArray) //returns dArray
+  remove_dups(array, sizeCh, deleteOriginalArray) //returns dArray
   remove_slice(array, size, from, to) //returns dArray
   
 search:
