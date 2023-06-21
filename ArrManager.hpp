@@ -1,5 +1,5 @@
-#ifndef ARRMANAGE_HPP
-#define ARRMANAGE_HPP
+#ifndef ARRMANAGER_HPP
+#define ARRMANAGER_HPP
 
 #include <cstdlib>
 #include <ctime>
