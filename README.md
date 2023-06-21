@@ -14,7 +14,9 @@ The functions in arr-manager are called through namespaces. For example, to call
 
 cpp
 
-int main() {
+int main() 
+{
+
     int array[] = {4, 2, 7, 1, 5};
     int size = sizeof(array) / sizeof(array[0]);
 
