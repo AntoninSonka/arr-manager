@@ -6,15 +6,11 @@ Getting Started
 
 To use the functions in arr-manager, include the arrmanager.hpp header file in your C++ project.
 
-cpp
-
     #include "ArrManager.hpp"
 
 Usage
 
 The functions in arr-manager are called through namespaces. For example, to call the merge_sort function, you need to use the namespace am::sort. Here's an example of how to use it:
-
-cpp
 
 
     int array[] = {4, 2, 7, 1, 5};
