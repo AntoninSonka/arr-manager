@@ -1,6 +1,6 @@
 Array Manager
 
-arr-manager is a C++ header file that provides functionality for managing arrays. It offers various operations such as sorting, searching, manipulation, and basic array operations. The functions are organized into different namespaces for easy access and clarity.
+ArrManager is a C++ header file that provides functionality for managing arrays. It offers various operations such as sorting, searching, manipulation, and basic array operations. The functions are organized into different namespaces for easy access and clarity.
 
 Getting Started
 
@@ -13,13 +13,20 @@ Usage
 The functions in arr-manager are called through namespaces. For example, to call the merge_sort function, you need to use the namespace am::sort. Here's an example of how to use it:
 
 
-    int array[] = {4, 2, 7, 1, 5};
+    int array[5];
     int size = sizeof(array) / sizeof(array[0]);
+    
+    am::basic::set_arr_el(array, size, 1); //seting elements
+    
+    am::sort::shuffle(array, size); //shuffeling elements
+    
+    std::cout << "Original array: ";
+    am::basic::print_arr(array, size); //printing array
 
-    am::sort::merge_sort(array, size);
+    am::sort::merge_sort(array, size); //sorting using merge sort
 
-    // Print the sorted array
-    am::basic::print_arr(array, size);
+    std::cout << "Sorted array: ";
+    am::basic::print_arr(array, size); //printing array
 
     return 0;
     
@@ -61,8 +68,8 @@ Namespace am::search
 
 This namespace provides search algorithms to find elements in arrays.
 
-    binary_search(sortedArray, size, element): Performs a binary search on a sorted array and returns the index of the element.
-    linear_search(array, size, element): Performs a linear search on the array and returns the index of the element.
+    int Index = binary_search(sortedArray, size, element): Performs a binary search on a sorted array and returns the index of the element.
+    int Index = linear_search(array, size, element): Performs a linear search on the array and returns the index of the element.
 
 Namespace am::stats
 
@@ -76,4 +83,4 @@ This namespace provides statistical functions for arrays.
 
 Contributing
 
-If you want to contribute to arr-manager, please submit a pull request with your changes. We welcome bug fixes, feature enhancements, and other improvements.
+If you want to contribute to arr-manager, please submit a pull request with your changes. I welcome bug fixes, feature enhancements, and other improvements.
