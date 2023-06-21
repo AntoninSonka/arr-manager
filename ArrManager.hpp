@@ -230,7 +230,7 @@ namespace am {
 
         //resizes array
         template <typename T>
-        T* resize(T* arr, int& size, std::size_t newSize){
+        T* resize(T* arr, int& size, std::size_t newSize, bool delOrigArr = 1){
             if(size < 0){
                 std::cerr << "Invalid size\n";
                 return arr;
@@ -241,14 +241,15 @@ namespace am {
                     tempArr[i] = arr[i];
                 }
             }
-            delete[] arr;
+            if(delOrigArr)
+                delete[] arr;
 
             return tempArr;
         }
 
         //removes duplicates
         template <typename T>
-        T* remove_dups(T* arr, int& size){
+        T* remove_dups(T* arr, int& size, bool delOrigArr = 1){
             if(size < 0){
                 std::cerr << "Invalid size\n";
                 return arr;
@@ -285,7 +286,8 @@ namespace am {
             }
             delete[] tempArr;
             delete[] dups;
-            delete[] arr;
+            if(delOrigArr)
+                delete[] arr;
             return returnArr;
         }
 
