@@ -1,4 +1,4 @@
-arr-manager
+Array Manager
 
 arr-manager is a C++ header file that provides functionality for managing arrays. It offers various operations such as sorting, searching, manipulation, and basic array operations. The functions are organized into different namespaces for easy access and clarity.
 
