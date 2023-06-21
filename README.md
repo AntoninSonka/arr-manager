@@ -14,8 +14,6 @@ The functions in arr-manager are called through namespaces. For example, to call
 
 cpp
 
-int main() 
-{
 
     int array[] = {4, 2, 7, 1, 5};
     int size = sizeof(array) / sizeof(array[0]);
@@ -26,7 +24,7 @@ int main()
     am::basic::print_arr(array, size);
 
     return 0;
-}
+    
 
 Available Namespaces and Functions
 Namespace am
