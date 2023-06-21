@@ -8,7 +8,7 @@ To use the functions in arr-manager, include the arrmanager.hpp header file in y
 
 cpp
 
-    #include "arrmanager.hpp"
+    #include "ArrManager.hpp"
 
 Usage
 
@@ -54,12 +54,12 @@ Namespace am::manip
 This namespace provides array manipulation functions.
 
     split(array, size, dArray1, dArray2): Splits the array into two subarrays.
-    slice(array, sizeCh, from, to): Returns a dynamic array (dArray) containing a slice of the original array.
-    concatenate(array1, size1, array2, size2): Concatenates two arrays into a single dynamic array.
+    array = slice(array, sizeCh, from, to): Returns a dynamic array (dArray) containing a slice of the original array.
+    array = concatenate(array1, size1, array2, size2): Concatenates two arrays into a single dynamic array.
     reverse(array, size): Reverses the elements of the array.
-    resize(array, sizeCh, newSize, deleteOriginalArray): Resizes the array to the specified size and returns a dynamic array. DeleteOriginalArray is optional, by default it is set to true, so it deletes original array.
-    remove_dups(array, sizeCh, deleteOriginalArray): Removes duplicates from the array and returns a dynamic array. DeleteOriginalArray is optional, by default it is set to true, so it deletes original array.
-    remove_slice(array, size, from, to): Removes a slice from the array and returns a dynamic array.
+    array = resize(array, sizeCh, newSize, deleteOriginalArray): Resizes the array to the specified size and returns a dynamic array. DeleteOriginalArray is optional, by default it is set to true, so it deletes original array.
+    array = remove_dups(array, sizeCh, deleteOriginalArray): Removes duplicates from the array and returns a dynamic array. DeleteOriginalArray is optional, by default it is set to true, so it deletes original array.
+    array = remove_slice(array, size, from, to): Removes a slice from the array and returns a dynamic array.
 
 Namespace am::search
 
