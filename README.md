@@ -75,11 +75,11 @@ Namespace am::stats
 
 This namespace provides statistical functions for arrays.
 
-    max_val(array, size): Returns the maximum value in the array.
-    min_val(array, size): Returns the minimum value in the array.
-    sum_el(array, size): Returns the sum of all elements in the array.
-    average(array, size): Returns the average value of the elements in the array.
-    median(array, size): Returns the median value of the elements in the array.
+    'type' val = max_val(array, size): Returns the maximum value in the array.
+    'type' val = min_val(array, size): Returns the minimum value in the array.
+    'type' val = sum_el(array, size): Returns the sum of all elements in the array.
+    'type' val = average(array, size): Returns the average value of the elements in the array.
+    'type' val = median(array, size): Returns the median value of the elements in the array.
 
 Contributing
 
