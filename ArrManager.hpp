@@ -181,7 +181,11 @@ namespace am {
         
         //slices form inclusive, to exclusive
         template <typename T>
-        T* slice(T arr[], std::size_t size, std::size_t from, std::size_t to){
+        T* slice(T arr[], int& size, std::size_t from, std::size_t to){
+            if(size < 0){
+                std::cerr << "Invalid size\n";
+                return arr;
+            }
             if(from >= to){
                 std::cerr << "In function slice, 'from' is greater, or equal, than 'to'. 'From' needs to be smaller than 'to'.\n";
                 return arr;
@@ -194,6 +198,7 @@ namespace am {
             for(int i = from; i < to; i++){
                 slicedArr[i - from] = arr[i];
             }
+            size = to - from;
             return slicedArr;
         }
 
