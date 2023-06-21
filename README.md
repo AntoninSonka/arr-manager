@@ -25,7 +25,7 @@ basic:
   
 manip:
   split(array, size, dArray1, dArray2)
-  slice(array, size, from, to) //returns dArray
+  slice(array, sizeCh, from, to) //returns dArray
   concatenate(array1, size1, array2, size2) //returns dArray
   reverse(array, size)
   resize(array, sizeCh, newSize) //returns dArray
