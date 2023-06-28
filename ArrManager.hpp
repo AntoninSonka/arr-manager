@@ -163,6 +163,12 @@ namespace am {
         }
     };
 
+    namespace data {
+        class binary_tree{
+
+        };
+    }
+
     namespace manip {
         using am::search::linear_search;
         //splits array into 2 subarrays
