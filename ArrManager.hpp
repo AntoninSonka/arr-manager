@@ -7,8 +7,9 @@
 
 namespace am {
     namespace{
-        void swap(int& x, int& y){
-            int z = x;
+        template<typename T>
+        void swap(T& x, T& y){
+            T z = x;
             x = y;
             y = z;
         }
